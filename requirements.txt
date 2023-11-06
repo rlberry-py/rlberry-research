@@ -1,2 +1,3 @@
 rlberry
+gymnasium["atari"]
 

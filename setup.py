@@ -15,18 +15,12 @@ packages = find_packages(exclude=["docs"])
 # Base installation (interface only)
 #
 install_requires = [
-     "rlberry"
-#    "numpy>=1.17",
-#    "scipy>=1.6",
-#    "pygame-ce",
-#    "matplotlib",
-#    "seaborn",
-#    "pandas",
-#    "gymnasium",
-#    "dill",
-#    "docopt",
-#    "pyyaml",
-#    "tqdm",
+    "rlberry",
+    # "numba",
+    # "optuna",
+    # "ffmpeg-python",
+    # "PyOpenGL",
+    # "pyvirtualdisplay",
 ]
 
 #
@@ -40,13 +34,12 @@ default_requires = [
 #    "ffmpeg-python",
 #    "PyOpenGL",
 #    "pyvirtualdisplay",
-#    "gymnasium",
 ]
 
 # tensorboard must be installed manually, due to conflicts with
 # dm-reverb-nightly[tensorflow] in jax_agents_requires
 torch_agents_requires = default_requires + [
-#    "torch>=1.6.0",
+   "torch>=1.6.0",
 #    "opencv-python",
 #    "gymnasium[atari,accept-rom-license]",
 #    "ale-py>=0.8.0",
@@ -81,7 +74,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="SCOOL Team",
-    url="https://github.com/rlberry-rlberry-research",
+    url="https://github.com/rlberry-py/rlberry-research",
     license="MIT",
     packages=packages,
     classifiers=[
