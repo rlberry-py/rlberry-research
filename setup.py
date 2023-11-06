@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 import os
 
 
-#ver_file = os.path.join("rlberry", "_version.py")
-#with open(ver_file) as f:
+# ver_file = os.path.join("rlberry", "_version.py")
+# with open(ver_file) as f:
 
 with open("_version.py") as f:
     exec(f.read())
 
-#packages = find_packages(exclude=["docs", "notebooks", "assets"])
+# packages = find_packages(exclude=["docs", "notebooks", "assets"])
 packages = find_packages(exclude=["docs"])
 
 #
@@ -29,32 +29,32 @@ install_requires = [
 
 ## default installation
 default_requires = [
-#    "numba",
-#    "optuna",
-#    "ffmpeg-python",
-#    "PyOpenGL",
-#    "pyvirtualdisplay",
+    #    "numba",
+    #    "optuna",
+    #    "ffmpeg-python",
+    #    "PyOpenGL",
+    #    "pyvirtualdisplay",
 ]
 
 # tensorboard must be installed manually, due to conflicts with
 # dm-reverb-nightly[tensorflow] in jax_agents_requires
 torch_agents_requires = default_requires + [
-   "torch>=1.6.0",
-#    "opencv-python",
-#    "gymnasium[atari,accept-rom-license]",
-#    "ale-py>=0.8.0",
-#    "stable-baselines3",
+    "torch>=1.6.0",
+    #    "opencv-python",
+    #    "gymnasium[atari,accept-rom-license]",
+    #    "ale-py>=0.8.0",
+    #    "stable-baselines3",
     # 'tensorboard'
 ]
 
 jax_agents_requires = default_requires + [
-#    "jax[cpu]",
-#    "chex",
-#    "dm-haiku",
-#    "optax",
-#    "dm-reverb[tensorflow]==0.6.1",
-#    "dm-tree",
-#    "rlax",
+    #    "jax[cpu]",
+    #    "chex",
+    #    "dm-haiku",
+    #    "optax",
+    #    "dm-reverb[tensorflow]==0.6.1",
+    #    "dm-tree",
+    #    "rlax",
 ]
 
 extras_require = {
