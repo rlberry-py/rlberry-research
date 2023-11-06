@@ -1,3 +1,5 @@
 rlberry
 gymnasium["atari"]
 
+pytest
+pytest-xprocess
