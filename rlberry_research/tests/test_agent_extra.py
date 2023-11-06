@@ -1,5 +1,4 @@
 import pytest
-import rlberry_research.agents as agents
 import rlberry_research.agents.torch as torch_agents
 from rlberry.utils.check_agent import (
     check_rl_agent,
@@ -9,7 +8,6 @@ from rlberry.utils.check_agent import (
 )
 
 # from rlberry_scool.agents.features import FeatureMap
-import numpy as np
 import sys
 
 
