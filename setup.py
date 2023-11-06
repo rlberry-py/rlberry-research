@@ -16,7 +16,7 @@ packages = find_packages(exclude=["docs"])
 # Base installation (interface only)
 #
 install_requires = [
-    "rlberry",
+    "rlberry@git+https://github.com/rlberry-py/rlberry",
     # "numba",
     # "optuna",
     # "ffmpeg-python",
