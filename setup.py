@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
-# import os
+import os
 
 
 # ver_file = os.path.join("rlberry", "_version.py")
 # with open(ver_file) as f:
 
-with open("_version.py") as f:
+with open(os.path.join("rlberry_research", "_version.py")) as f:
     exec(f.read())
 
 # packages = find_packages(exclude=["docs", "notebooks", "assets"])
