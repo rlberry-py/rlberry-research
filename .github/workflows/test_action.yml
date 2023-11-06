@@ -27,6 +27,6 @@ jobs:
           pip install -e .
       - name: Test with pytest
         run: |
-          pytest --cov=rlberry_research --cov-report xml  tests/
+          pytest --cov=rlberry_research --cov-report xml  rlberry_research/
       - name: Coverage
         uses: codecov/codecov-action@v3
