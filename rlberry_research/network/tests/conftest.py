@@ -5,7 +5,7 @@ import multiprocessing
 
 from rlberry_research.network.interface import ResourceItem
 from rlberry_research.network.server import BerryServer
-from rlberry_scool.agents import ValueIterationAgent
+from rlberry_research.agents import OptQLAgent
 from rlberry_research.agents.torch import REINFORCEAgent
 from rlberry.envs import gym_make
 from rlberry_research.envs import GridWorld
@@ -26,9 +26,9 @@ def server(port):
         GridWorld=ResourceItem(obj=GridWorld, description="GridWorld constructor"),
         gym_make=ResourceItem(obj=gym_make, description="gym_make"),
         REINFORCEAgent=ResourceItem(obj=REINFORCEAgent, description="REINFORCEAgent"),
-        ValueIterationAgent=ResourceItem(
-            obj=ValueIterationAgent,
-            description="ValueIterationAgent constructor" + ValueIterationAgent.__doc__,
+        OptQLAgent=ResourceItem(
+            obj=OptQLAgent,
+            description="ValueIterationAgent constructor" + OptQLAgent.__doc__,
         ),
         DefaultWriter=ResourceItem(
             obj=DefaultWriter, description="rlberry default writer"

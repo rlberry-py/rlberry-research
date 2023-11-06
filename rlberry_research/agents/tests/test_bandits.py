@@ -1,9 +1,9 @@
 from rlberry_research.envs.bandits import NormalBandit, BernoulliBandit
+from rlberry.agents.bandits import BanditWithSimplePolicy
 from rlberry_research.agents.bandits import (
     IndexAgent,
     RandomizedAgent,
     TSAgent,
-    BanditWithSimplePolicy,
     makeBetaPrior,
     makeBoundedIMEDIndex,
     makeBoundedMOSSIndex,
