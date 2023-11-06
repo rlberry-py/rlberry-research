@@ -1,0 +1,4 @@
+from .remote_experiment_manager import RemoteExperimentManager
+
+
+RemoteAgentManager = RemoteExperimentManager
