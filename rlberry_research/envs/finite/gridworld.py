@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 
-from rlberry_research.envs.finite import FiniteMDP
+from rlberry.envs.finite_mdp import FiniteMDP
 from rlberry_research.envs.finite import gridworld_utils
 from rlberry_research.rendering import Scene, GeometricPrimitive, RenderInterface2D
 from rlberry_research.rendering.common_shapes import circle_shape
