@@ -1,2 +1,2 @@
 from .classic_control import Acrobot, MountainCar, Pendulum, SpringCartPole
-from .finite import Chain, FiniteMDP, GridWorld
+from .finite import Chain, GridWorld

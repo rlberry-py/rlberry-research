@@ -1,6 +1,6 @@
 import numpy as np
 
-from rlberry_research.envs.finite import FiniteMDP
+from rlberry.envs.finite_mdp import FiniteMDP
 from rlberry_research.rendering import RenderInterface2D, Scene, GeometricPrimitive
 
 
