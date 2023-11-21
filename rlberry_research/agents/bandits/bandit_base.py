@@ -1,5 +1,5 @@
 import numpy as np
-from rlberry.agents import AgentWithSimplePolicy
+from rlberry_research.agents import AgentWithSimplePolicy
 from .tools import BanditTracker
 import pickle
 
