@@ -1,5 +1,5 @@
 import numpy as np
-from rlberry.agents.bandits import BanditWithSimplePolicy
+from rlberry_research.agents.bandits import BanditWithSimplePolicy
 
 
 import rlberry
