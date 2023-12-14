@@ -1,6 +1,6 @@
 import pytest
-from rlberry.agents.ucbvi import UCBVIAgent
-from rlberry_research.envs.finite import GridWorld
+from rlberry_research.agents.ucbvi import UCBVIAgent
+from rlberry.envs.finite import GridWorld
 
 
 @pytest.mark.parametrize(

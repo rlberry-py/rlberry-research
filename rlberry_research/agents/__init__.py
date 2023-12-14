@@ -10,3 +10,4 @@ from .kernel_based import RSUCBVIAgent, RSKernelUCBVIAgent
 from .optql import OptQLAgent
 from .psrl import PSRLAgent
 from .rlsvi import RLSVIAgent
+from .ucbvi import UCBVIAgent
