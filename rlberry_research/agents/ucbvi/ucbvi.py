@@ -2,7 +2,7 @@ import numpy as np
 
 import gymnasium.spaces as spaces
 from rlberry.agents import AgentWithSimplePolicy
-from rlberry_scool.agents.ucbvi.utils import (
+from rlberry_research.agents.ucbvi.utils import (
     update_value_and_get_action,
     update_value_and_get_action_sd,
 )
