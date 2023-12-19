@@ -29,7 +29,7 @@ class UCBVIAgent(AgentWithSimplePolicy):
 
     Parameters
     ----------
-    env : gym.Env
+    env : gymnasium.Env
         Environment with discrete states and actions.
     gamma : double, default: 1.0
         Discount factor in [0, 1]. If gamma is 1.0, the problem is set to
@@ -51,6 +51,9 @@ class UCBVIAgent(AgentWithSimplePolicy):
     real_time_dp : bool, default: False
         If true, uses real-time dynamic programming [2]_ instead of full backward induction
         for the sampling policy.
+    **kwargs : Keyword Arguments
+         Arguments to be passed to `AgentWithSimplePolicy.__init__(self, env, **kwargs)` (:class:`~rlberry.agents.AgentWithSimplePolicy`).
+
 
     References
     ----------

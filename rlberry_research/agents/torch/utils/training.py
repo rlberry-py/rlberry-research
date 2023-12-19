@@ -6,6 +6,14 @@ from torch.nn import functional as F
 
 
 def loss_function_factory(loss_function, **kwargs):
+    """
+    Parameters
+    ----------
+    loss_function: {"l2", "l1", "smooth_l1","bce"}
+        Name of the loss function.
+    **kwargs : Keyword Arguments
+         Arguments to be passed to the previously named loss function.
+    """
     if loss_function == "l2":
         return torch.nn.MSELoss(**kwargs)
     elif loss_function == "l1":
@@ -19,6 +27,15 @@ def loss_function_factory(loss_function, **kwargs):
 
 
 def optimizer_factory(params, optimizer_type="ADAM", **kwargs):
+    """
+    Parameters
+    ----------
+    params (iterable): an iterable of :class:`torch.Tensor` s or :class:`dict` s. Specifies what Tensors should be optimized.
+    optimizer_type: {"ADAM", "RMS_PROP"}
+        Name of the loss function.
+    **kwargs : Keyword Arguments
+         Arguments to be passed to the previously named optimizer.
+    """
     if optimizer_type == "ADAM":
         return torch.optim.Adam(params=params, **kwargs)
     elif optimizer_type == "RMS_PROP":
@@ -32,9 +49,9 @@ def model_factory_from_env(env, **kwargs):
 
     Parameters
     ----------
-    env: gym.Env
+    env: gymnasium.Env
         Environment
-    **kwargs: Dict
+    **kwargs: Keyword Arguments
         Parameters to be updated, used to call :func:`~rlberry_research.agents.torch.utils.training.model_factory`.
     """
     kwargs = size_model_config(env, **kwargs)
@@ -51,7 +68,7 @@ def model_factory(type="MultiLayerPerceptron", **kwargs) -> nn.Module:
            "DuelingNetwork",
            "Table"}, default = "MultiLayerPerceptron"
         Type of neural network.
-    **kwargs: dict
+    **kwargs: Keyword Arguments
         Parameters that vary according to each neural net type, see
 
         * :class:`~rlberry_research.agents.torch.utils.models.MultiLayerPerceptron`
@@ -88,7 +105,7 @@ def size_model_config(env, **model_config):
 
     Parameters
     ----------
-    env : gym.Env
+    env : gymnasium.Env
         An environment.
     model_config : dict
         Parameters to be updated, used to call :func:`~rlberry_research.agents.torch.utils.training.model_factory`.

@@ -17,7 +17,7 @@ class AdaptiveQLAgent(AgentWithSimplePolicy):
 
     Parameters
     ----------
-    env : gym.Env
+    env : gymnasium.Env
         Environment with continuous states and discrete actions.
     gamma : double, default: 1.0
         Discount factor in [0, 1].
@@ -29,6 +29,9 @@ class AdaptiveQLAgent(AgentWithSimplePolicy):
     bonus_type : string, default: "simplified_bernstein"
         Type of exploration bonus. Currently, only "simplified_bernstein"
         is implemented.
+    **kwargs : Keyword Arguments
+         Arguments to be passed to `AgentWithSimplePolicy.__init__(self, env, **kwargs)` (:class:`~rlberry.agents.AgentWithSimplePolicy`).
+
 
     Attributes
     ----------
@@ -186,6 +189,8 @@ class AdaptiveQLAgent(AgentWithSimplePolicy):
         budget: int
             number of episodes. Each episode runs for self.horizon unless it
             enconters a terminal state in which case it stops early.
+        **kwargs : Keyword Arguments
+            Extra arguments. Not used for this agent.
         """
         del kwargs
         n_episodes_to_run = budget
