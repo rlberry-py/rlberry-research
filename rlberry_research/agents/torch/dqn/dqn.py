@@ -31,6 +31,13 @@ logger = rlberry.logger
 def default_q_net_fn(env, **kwargs):
     """
     Returns a default Q value network.
+
+    Parameters
+    ----------
+    env : gymnasium.Env
+        An environment.
+    **kwargs : Keyword Arguments
+        Extra arguments. Not used for this agent.
     """
     del kwargs
     model_config = {

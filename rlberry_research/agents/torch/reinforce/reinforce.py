@@ -46,7 +46,10 @@ class REINFORCEAgent(AgentTorch, AgentWithSimplePolicy):
         If true, check if environment info has entry 'exploration_bonus'
         and add it to the reward. See also UncertaintyEstimatorWrapper.
     device: str
-        Device to put the tensors on
+        Device to put the tensors on GPU or CPU
+    **kwargs : Keyword Arguments
+         Arguments to be passed to `AgentWithSimplePolicy.__init__(self, env, **kwargs)` (:class:`~rlberry.agents.AgentWithSimplePolicy`).
+
 
     Attributes
     ----------
@@ -162,6 +165,8 @@ class REINFORCEAgent(AgentTorch, AgentWithSimplePolicy):
         budget: int
             number of episodes. Each episode runs for self.horizon unless it
             enconters a terminal state in which case it stops early.
+        **kwargs : Keyword Arguments
+            Extra arguments. Not used for this agent.
         """
         del kwargs
         n_episodes_to_run = budget

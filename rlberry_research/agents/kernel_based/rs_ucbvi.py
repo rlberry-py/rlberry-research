@@ -63,6 +63,9 @@ class RSUCBVIAgent(AgentWithSimplePolicy):
         and the algorithm uses 1/n bonuses.
     reward_free : bool
         If true, ignores rewards and uses only 1/n bonuses.
+    **kwargs : Keyword Arguments
+         Arguments to be passed to `AgentWithSimplePolicy.__init__(self, env, **kwargs)` (:class:`~rlberry.agents.AgentWithSimplePolicy`).
+
 
     References
     ----------

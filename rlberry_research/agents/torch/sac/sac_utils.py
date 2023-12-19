@@ -4,6 +4,14 @@ from rlberry_research.agents.torch.utils.training import model_factory
 def default_q_net_fn(env, **kwargs):
     """
     Returns a default Q value network.
+
+    Parameters
+    ----------
+    env : gymnasium.Env
+        An environment.
+    **kwargs : Keyword Arguments
+        Extra arguments used to call :func:`~rlberry.agents.torch.utils.training.model_factory`.
+
     """
     model_config = {
         "type": "MultiLayerPerceptron",
@@ -21,6 +29,14 @@ def default_q_net_fn(env, **kwargs):
 def default_policy_net_fn(env, **kwargs):
     """
     Returns a default Q value network.
+
+    Parameters
+    ----------
+    env : gymnasium.Env
+        An environment.
+    **kwargs : Keyword Arguments
+        Extra arguments used to call :func:`~rlberry.agents.torch.utils.training.model_factory`.
+
     """
     model_config = {
         "type": "MultiLayerPerceptron",
