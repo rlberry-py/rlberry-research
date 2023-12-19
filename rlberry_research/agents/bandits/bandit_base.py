@@ -116,7 +116,7 @@ class BanditWithSimplePolicy(AgentWithSimplePolicy):
     def load(cls, filename, **kwargs):
         # If overridden, save() method must also be overriden.
         """Load agent object.
-        
+
         Parameters
         ----------
         **kwargs: Keyword Arguments
