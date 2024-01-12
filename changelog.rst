@@ -22,4 +22,3 @@ Previous Version
 
 check here : https://github.com/rlberry-py/rlberry
 (in '/docs/changelog.rst')
-
