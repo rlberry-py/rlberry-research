@@ -1,4 +1,4 @@
-from rlberry.envs.benchmarks.grid_exploration.apple_gold import AppleGold
+from rlberry_research.envs.benchmarks.grid_exploration.apple_gold import AppleGold
 from rlberry.agents.mbqvi import MBQVIAgent
 from rlberry.manager import ExperimentManager, evaluate_agents
 import numpy as np
