@@ -19,7 +19,7 @@ def test_dqn_montaincar():
         DQNAgent,
         (env_ctor, env_kwargs),
         init_kwargs=dict(
-            q_net_constructor="rlberry.agents.torch.utils.training.model_factory_from_env",
+            q_net_constructor="rlberry_research.agents.torch.utils.training.model_factory_from_env",
             q_net_kwargs=model_configs,
             batch_size=128,
             max_replay_size=10000,
