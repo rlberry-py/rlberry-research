@@ -25,7 +25,7 @@ class PSRLAgent(AgentWithSimplePolicy):
 
     Parameters
     ----------
-    env : gym.Env
+    env : gymnasium.Env
         Environment with discrete states and actions.
     gamma : double, default: 1.0
         Discount factor in [0, 1]. If gamma is 1.0, the problem is set to
@@ -45,6 +45,9 @@ class PSRLAgent(AgentWithSimplePolicy):
         If true, ignores rewards and uses only 1/n bonuses.
     stage_dependent : bool, default: False
         If true, assume that transitions and rewards can change with the stage h.
+    **kwargs : Keyword Arguments
+         Arguments to be passed to `AgentWithSimplePolicy.__init__(self, env, **kwargs)` (:class:`~rlberry.agents.AgentWithSimplePolicy`).
+
 
     References
     ----------
@@ -230,6 +233,8 @@ class PSRLAgent(AgentWithSimplePolicy):
         budget: int
             number of episodes. Each episode runs for self.horizon unless it
             enconters a terminal state in which case it stops early.
+        **kwargs : Keyword Arguments
+            Extra arguments. Not used for this agent.
         """
         del kwargs
         n_episodes_to_run = budget

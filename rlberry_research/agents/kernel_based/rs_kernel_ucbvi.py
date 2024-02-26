@@ -141,7 +141,8 @@ class RSKernelUCBVIAgent(AgentWithSimplePolicy):
     bonus_type : string
             Type of exploration bonus. Currently, only "simplified_bernstein"
             is implemented.
-
+    **kwargs : Keyword Arguments
+         Arguments to be passed to `AgentWithSimplePolicy.__init__(self, env, **kwargs)` (:class:`~rlberry.agents.AgentWithSimplePolicy`).
 
     References
     ----------

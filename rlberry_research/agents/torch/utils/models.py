@@ -273,6 +273,8 @@ class MultiLayerPerceptron(BaseModule):
     pred_init_scale: float, default="auto"
         Scale of the initial weights of the output layer. If "auto", the
         scale is set to 0.01 for policy networks and 1.0 otherwise.
+    **kwargs : Keyword Arguments
+         Arguments to be passed to `BaseModule.__init__(self, env, **kwargs)` (:class:`~rlberry.torch.utils.models.BaseModule`).
     """
 
     def __init__(
@@ -460,6 +462,7 @@ class ConvolutionalNetwork(nn.Module):
         out_size=None,
         is_policy=False,
         transpose_obs=False,
+        ctns_actions=False,
         **kwargs
     ):
         super().__init__()
@@ -475,6 +478,7 @@ class ConvolutionalNetwork(nn.Module):
         )  # Number of Linear input connections depends on output of conv layers
         self.head_mlp_kwargs["out_size"] = out_size
         self.head_mlp_kwargs["is_policy"] = is_policy
+        self.head_mlp_kwargs["ctns_actions"] = ctns_actions
         self.head = model_factory(**self.head_mlp_kwargs)
 
         self.is_policy = is_policy
