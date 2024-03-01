@@ -9,6 +9,10 @@ Dev version
 
 * nothing new
 
+Version 0.7.1
+
+* update long tests
+
 Version 0.7.0
 -------------
 
