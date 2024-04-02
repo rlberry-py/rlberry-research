@@ -15,11 +15,11 @@ def test_dqn_montaincar():
     env_ctor = gym_make
     env_kwargs = dict(id="MountainCar-v0")
 
-    rbagent = ExperimentManager(
+    rb_xp = ExperimentManager(
         DQNAgent,
         (env_ctor, env_kwargs),
         init_kwargs=dict(
-            q_net_constructor="rlberry_research.agents.torch.utils.training.model_factory_from_env",
+            q_net_constructor="rlberry.agents.torch.utils.training.model_factory_from_env",
             q_net_kwargs=model_configs,
             batch_size=128,
             max_replay_size=10000,
@@ -40,6 +40,6 @@ def test_dqn_montaincar():
         seed=42,
     )
 
-    rbagent.fit()
-    evaluation = evaluate_agents([rbagent], n_simulations=16, show=False).values
+    rb_xp.fit()
+    evaluation = evaluate_agents([rb_xp], n_simulations=16, show=False).values
     assert np.mean(evaluation) > -110
