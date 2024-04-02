@@ -54,11 +54,12 @@ def test_a2c_vs_ppo_pendul():
     evaluation = evaluate_agents(
         [a2c_xp_manager, ppo_xp_manager], n_simulations=100, show=False
     )
-    plt.boxplot(evaluation.values,labels=evaluation.columns)
+    plt.boxplot(evaluation.values, labels=evaluation.columns)
     plt.xlabel("agent")
     plt.ylabel("Cumulative Reward")
     plt.title("Evals")
     plt.gcf().savefig("a2c_ppo_pendul_eval.pdf")
     plt.clf()
+
 
 test_a2c_vs_ppo_pendul()

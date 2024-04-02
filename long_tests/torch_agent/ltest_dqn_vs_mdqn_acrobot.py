@@ -93,7 +93,7 @@ def test_dqn_vs_mdqn_acro():
     evaluation = evaluate_agents(
         [mdqn_xp_manager, dqn_xp_manager], n_simulations=100, show=False
     )
-    plt.boxplot(evaluation.values,labels=evaluation.columns)
+    plt.boxplot(evaluation.values, labels=evaluation.columns)
     plt.xlabel("agent")
     plt.ylabel("Cumulative Reward")
     plt.title("Evals")
