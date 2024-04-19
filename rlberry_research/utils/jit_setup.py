@@ -5,11 +5,11 @@
 #
 import rlberry.check_packages as check_packages
 
-if check_packages.NUMBA_INSTALLED:
+try:
     from numba import jit
 
     numba_jit = jit(nopython=True)
-else:
+except:
 
     def numba_jit(func, **options):
         """This decorator does not modify the decorated function."""
