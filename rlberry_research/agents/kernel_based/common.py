@@ -1,6 +1,6 @@
 import numpy as np
 from rlberry_research.utils.jit_setup import numba_jit
-from rlberry.utils.metrics import metric_lp
+from rlberry_research.utils.metrics import metric_lp
 
 
 @numba_jit

@@ -5,7 +5,7 @@ import gymnasium.spaces as spaces
 from rlberry.agents import AgentWithSimplePolicy
 from rlberry_research.agents.dynprog.utils import backward_induction
 from rlberry_research.agents.dynprog.utils import backward_induction_in_place
-from rlberry.utils.metrics import metric_lp
+from rlberry_research.utils.metrics import metric_lp
 from rlberry_research.agents.kernel_based.kernels import kernel_func
 from rlberry_research.agents.kernel_based.common import map_to_representative
 

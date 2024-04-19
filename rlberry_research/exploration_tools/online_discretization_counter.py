@@ -5,7 +5,7 @@ from rlberry_research.exploration_tools.uncertainty_estimator import (
 )
 from rlberry_research.exploration_tools.typing import preprocess_args
 from gymnasium.spaces import Box, Discrete
-from rlberry.utils.metrics import metric_lp
+from rlberry_research.utils.metrics import metric_lp
 
 import rlberry
 
