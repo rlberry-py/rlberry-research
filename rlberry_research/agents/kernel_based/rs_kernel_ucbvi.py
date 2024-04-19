@@ -1,5 +1,5 @@
 import numpy as np
-from rlberry.utils.jit_setup import numba_jit
+from rlberry_research.utils.jit_setup import numba_jit
 
 import gymnasium.spaces as spaces
 from rlberry.agents import AgentWithSimplePolicy
