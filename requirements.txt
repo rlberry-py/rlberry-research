@@ -1,4 +1,4 @@
-rlberry
+git+https://github.com/rlberry-py/rlberry
 tqdm
 numpy>=1.17
 scipy>=1.6
