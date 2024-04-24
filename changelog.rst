@@ -13,7 +13,7 @@ Version 0.7.3
 -------------
 
 *PR #15*
-  * switch default install between requirement.txt and settings 
+  * switch default install between requirement.txt and settings
 
 *PR #14*
   * move "long tests" from rlberry to rlberry_research
