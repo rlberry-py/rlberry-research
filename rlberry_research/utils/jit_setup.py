@@ -3,7 +3,6 @@
 # -> If so, use numba.jit
 # -> Otherwise, define numba_jit as a dummy decorator.
 #
-import rlberry.check_packages as check_packages
 
 try:
     from numba import jit
