@@ -539,3 +539,117 @@ class ConvolutionalNetwork(nn.Module):
 
     def action_scores(self, x):
         return self.head.action_scores(self.convolutions(x))
+
+class MinatarCNN(nn.Module):
+    """
+    CNN from MinAtar  paper:
+        Young, Kenny & Tian, Tian. (2019).
+        MinAtar: An Atari-inspired Testbed for 
+        More Efficient Reinforcement Learning Experiments.
+        10.48550/arXiv.1903.03176. 
+
+    Expects inputs of shape BCHW, where
+    B = batch size;
+    C = number of channels;
+    H = height;
+    W = width.
+
+    For the CNN forward, if the tensor has more than 4 dimensions (not BCHW), it keeps the 3 last dimension as CHW and merge all first ones into 1 (Batch). Go through the CNN + MLP, then split the first dimension as before.
+
+    Parameters
+    ----------
+    activation: {"RELU", "TANH", "ELU"}
+        Activation function.
+    in_channels: int
+        Number of input channels C
+    in_height: int
+        Input height H
+    in_width: int
+        Input width W
+    head_mlp_kwargs: dict, optional
+        Parameters to build an MLP
+        (:class:`~rlberry_research.agents.torch.utils.models.MultiLayerPerceptron`)
+        using the factory
+        :func:`~rlberry_research.agents.torch.utils.training.model_factory`
+
+    """
+    def __init__(
+        self,
+        activation="RELU",
+        in_channels=None,
+        in_height=None,
+        in_width=None,
+        head_mlp_kwargs=None,
+        out_size=None,
+        is_policy=False,
+        transpose_obs=False,
+        ctns_actions=False,
+        **kwargs
+    ):
+        super().__init__()
+        self.activation = activation_factory(activation)
+        self.conv1 = nn.Conv2d(in_channels, 16, kernel_size=3, stride=1)
+
+        # MLP Head
+        self.head_mlp_kwargs = head_mlp_kwargs or {}
+        self.head_mlp_kwargs["in_size"] = self._get_conv_out_size(
+            [in_channels, in_height, in_width]
+        )  # Number of Linear input connections depends on output of conv layers
+        self.head_mlp_kwargs["out_size"] = out_size
+        self.head_mlp_kwargs["is_policy"] = is_policy
+        self.head_mlp_kwargs["ctns_actions"] = ctns_actions
+        self.head = model_factory(**self.head_mlp_kwargs)
+
+        self.is_policy = is_policy
+        self.transpose_obs = transpose_obs
+
+    def _get_conv_out_size(self, shape):
+        """
+        Computes the output dimensions of the convolution network.
+        Shape : dimension of the input of the CNN
+        """
+        conv_result = self.activation((self.conv1(torch.zeros(1, *shape))))
+        return int(np.prod(conv_result.size()))
+
+    def convolutions(self, x):
+        x = x.float()
+        if len(x.shape) == 3:
+            x = x.unsqueeze(0)
+        if self.transpose_obs:
+            x = torch.transpose(x, -1, -3)
+        x = self.activation((self.conv1(x)))
+        x = x.view(x.size(0), -1)  # flatten
+        return x
+
+    def forward(self, x):
+        """
+        Forward convolutional network
+
+        Parameters
+        ----------
+        x: torch.tensor
+            Tensor of shape BCHW (Batch,Chanel,Height,Width : if more than 4 dimensions, merge all the first in batch dimension)
+        """
+        flag_view_to_change = False
+
+        if len(x.shape) > 4:
+            flag_view_to_change = True
+            dim_to_retore = x.shape[:-3]
+            inputview_size = tuple((-1,)) + tuple(x.shape[-3:])
+            outputview_size = tuple(dim_to_retore) + tuple(
+                (self.head_mlp_kwargs["out_size"],)
+            )
+            x = x.view(inputview_size)
+
+        conv_result = self.convolutions(x)
+        output_result = self.head(
+            conv_result.view(conv_result.size()[0], -1)
+        )
+
+        if flag_view_to_change:
+            output_result = output_result.view(outputview_size)
+
+        return output_result
+
+    def action_scores(self, x):
+        return self.head.action_scores(self.convolutions(x))
