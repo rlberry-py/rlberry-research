@@ -77,12 +77,15 @@ def model_factory(type="MultiLayerPerceptron", **kwargs) -> nn.Module:
 
         * :class:`~rlberry_research.agents.torch.utils.models.DuelingNetwork`
 
+        * :class:`~rlberry_research.agents.torch.utils.models.MinatarCNN`
+
         * :class:`~rlberry_research.agents.torch.utils.models.Table`
     """
     from rlberry_research.agents.torch.utils.models import (
         MultiLayerPerceptron,
         DuelingNetwork,
         ConvolutionalNetwork,
+        MinatarCNN,
         Table,
     )
 
@@ -90,6 +93,8 @@ def model_factory(type="MultiLayerPerceptron", **kwargs) -> nn.Module:
         return MultiLayerPerceptron(**kwargs)
     elif type == "DuelingNetwork":
         return DuelingNetwork(**kwargs)
+    elif type == "MinatarCNN":
+        return MinatarCNN(**kwargs)
     elif type == "ConvolutionalNetwork":
         return ConvolutionalNetwork(**kwargs)
     elif type == "Table":
