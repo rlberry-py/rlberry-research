@@ -76,7 +76,7 @@ def model_factory(type="MultiLayerPerceptron", **kwargs) -> nn.Module:
         * :class:`~rlberry_research.agents.torch.utils.models.ConvolutionalNetwork`
 
         * :class:`~rlberry_research.agents.torch.utils.models.DuelingNetwork`
-        
+
         * :class:`~rlberry_research.agents.torch.utils.models.MinatarCNN`
 
         * :class:`~rlberry_research.agents.torch.utils.models.Table`

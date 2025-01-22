@@ -540,13 +540,14 @@ class ConvolutionalNetwork(nn.Module):
     def action_scores(self, x):
         return self.head.action_scores(self.convolutions(x))
 
+
 class MinatarCNN(nn.Module):
     """
     CNN from MinAtar  paper:
         Young, Kenny & Tian, Tian. (2019).
-        MinAtar: An Atari-inspired Testbed for 
+        MinAtar: An Atari-inspired Testbed for
         More Efficient Reinforcement Learning Experiments.
-        10.48550/arXiv.1903.03176. 
+        10.48550/arXiv.1903.03176.
 
     Expects inputs of shape BCHW, where
     B = batch size;
@@ -573,6 +574,7 @@ class MinatarCNN(nn.Module):
         :func:`~rlberry_research.agents.torch.utils.training.model_factory`
 
     """
+
     def __init__(
         self,
         activation="RELU",
@@ -642,9 +644,7 @@ class MinatarCNN(nn.Module):
             x = x.view(inputview_size)
 
         conv_result = self.convolutions(x)
-        output_result = self.head(
-            conv_result.view(conv_result.size()[0], -1)
-        )
+        output_result = self.head(conv_result.view(conv_result.size()[0], -1))
 
         if flag_view_to_change:
             output_result = output_result.view(outputview_size)
