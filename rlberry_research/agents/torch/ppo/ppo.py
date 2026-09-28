@@ -25,7 +25,6 @@ import bz2
 import _pickle as cPickle
 from pathlib import Path
 
-
 logger = rlberry.logger
 
 
