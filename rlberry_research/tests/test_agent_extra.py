@@ -10,7 +10,6 @@ from rlberry.utils.check_agent import (
 # from rlberry_scool.agents.features import FeatureMap
 import sys
 
-
 # No agent "FINITE_MDP" in extra
 # FINITE_MDP_AGENTS = [
 # ]
