@@ -141,10 +141,8 @@ class OnlineDiscretizationCounter(UncertaintyEstimator):
             self.n_representatives += 1
 
         if self.n_representatives >= self.max_repr and (not self._overflow_warning):
-            logger.warning(
-                "OnlineDiscretizationCounter reached \
-the maximum number of representative states."
-            )
+            logger.warning("OnlineDiscretizationCounter reached \
+the maximum number of representative states.")
             self._overflow_warning = True
 
         return state_idx, dist_to_closest
