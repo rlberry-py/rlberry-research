@@ -18,7 +18,6 @@ from rlberry_research.agents.bandits import (
 )
 from rlberry.utils import check_bandit_agent
 
-
 TEST_SEED = 42
 
 

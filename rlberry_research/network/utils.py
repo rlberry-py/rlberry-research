@@ -3,7 +3,6 @@ from copy import deepcopy
 from rlberry_research.network import interface
 from typing import Any, Callable, Mapping, Optional, Tuple, Union
 
-
 Tree = Union[Any, Tuple, Mapping[Any, "Tree"]]
 
 
