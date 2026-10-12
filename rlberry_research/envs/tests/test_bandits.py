@@ -8,7 +8,6 @@ from rlberry_research.envs.bandits import (
     CorruptedNormalBandit,
 )
 
-
 TEST_SEED = 42
 
 

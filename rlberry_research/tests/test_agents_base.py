@@ -6,7 +6,6 @@ tests based on test_agent.py and test_envs.py
 
 """
 
-
 import pytest
 import sys
 
@@ -16,7 +15,6 @@ from rlberry.utils.check_agent import (
     check_rl_agent,
     check_rlberry_agent,
 )
-
 
 FINITE_MDP_AGENTS = [
     agents.OptQLAgent,
